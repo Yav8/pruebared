@@ -80,4 +80,8 @@ public class EntradaTexto extends EntradaConComentarios {
     public void mostrarAutorYMensaje() {
         System.out.println("Usuario: " + getUsuario() + " - mensaje: " + mensaje);
     }
+    
+    public void mostrar() {
+        System.out.println(this);
+    }
 }

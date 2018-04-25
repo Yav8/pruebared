@@ -7,35 +7,22 @@ import java.util.ArrayList;
  * @version 2018.04.14
  */
 public class Muro {
-    private ArrayList<EntradaTexto> mensajes;
-    private ArrayList<EntradaFoto> fotos;
-    private ArrayList<EntradaEvento> eventos;
+    private ArrayList<Entrada> entradas;
     
     /**
      * Constructor para objetos de la clase Muro.
      */
     public Muro() {
-        mensajes = new ArrayList<>();
-        fotos = new ArrayList<>();
-        eventos = new ArrayList<>();
+        entradas = new ArrayList<>();
     }
     
     /**
-     * Añade una entrada de texto al muro.
+     * A�ade una entrada de texto al muro.
      * @param entradaTexto La entrada de texto que va a ser añadida 
      * al muro.
      */
-    public void addEntradaTexto(EntradaTexto entradaTexto) {
-        mensajes.add(entradaTexto);
-    }
-    
-    /**
-     * Añade una entrada de foto al muro.
-     * @param entradaFoto La entrada de foto que va a ser añadida 
-     * al muro.
-     */
-    public void addEntradaFoto(EntradaFoto entradaFoto) {
-        fotos.add(entradaFoto);
+    public void addEntrada(Entrada entrada) {
+        entradas.add(entrada);
     }
     
     /**
@@ -44,43 +31,17 @@ public class Muro {
      * @return Devuelve un String con las caracteristicas de las entradas 
      * de texto, las entradas de imagen y las entradas de evento, en este orden.
      */
+    @Override
     public String toString() {
         String textoADevolver = "";
-        if(mensajes.size() > 0) {
-            textoADevolver += "Entradas de texto /-/ ";
-            for(int contador = 0; contador < mensajes.size(); contador++) {
-                textoADevolver += mensajes.get(contador).toString();
-                if(contador != mensajes.size() - 1) {
-                    textoADevolver += " / ";
-                }
+        
+        if (entradas.size() > 0) {
+            for(Entrada entrada : entradas) {
+                textoADevolver += entrada;
             }
         }
-        if(mensajes.size() > 0 && fotos.size() > 0) {
-            textoADevolver += " /-/ ";
-        }
-        if(fotos.size() > 0) {
-            textoADevolver += "Entradas de foto /-/ ";      
-            for(int contador = 0; contador < fotos.size(); contador++) {
-                textoADevolver += fotos.get(contador).toString();
-                if(contador != fotos.size() - 1) {
-                    textoADevolver += " / ";
-                }
-            }
-        }
-        if((mensajes.size() > 0 || fotos.size() > 0) && eventos.size() > 0) {
-            textoADevolver += " /-/ ";
-        }
-        if(eventos.size() > 0) {
-            textoADevolver += "Entradas de evento /-/ ";      
-            for(int contador = 0; contador < eventos.size(); contador++) {
-                textoADevolver += eventos.get(contador).toString();
-                if(contador != fotos.size() - 1) {
-                    textoADevolver += " / ";
-                }
-            }
-        }
-        if(textoADevolver.equals("")) {
-            textoADevolver = "No hay datos de entradas de texto, ni de entradas de fotos, ni de eventos aun.";
+        else {
+            textoADevolver = "No hay datos de entradas de texto, ni de entradas de fotos, ni de entradas de eventos aun.";
         }
         return textoADevolver;
     }
@@ -90,42 +51,13 @@ public class Muro {
      * las entradas de foto y de las entradas de evento, en este orden.
      */
     public void mostrarCaracteristicas() {
-        if(mensajes.size() > 0 || fotos.size() > 0 || eventos.size() > 0) {
-            if(mensajes.size() > 0) {
-                System.out.println("Entradas de texto:");
-                for(EntradaTexto entradaTexto : mensajes) {
-                    System.out.println(entradaTexto);
-                }
-                if(fotos.size() > 0) {
-                    System.out.println();
-                }
-            }
-            if(fotos.size() > 0) {
-                System.out.println("Entradas de foto:");
-                for(EntradaFoto entradaFoto : fotos) {
-                    System.out.println(entradaFoto);
-                }
-                if(eventos.size() > 0) {
-                    System.out.println();
-                }
-            }
-            if(eventos.size() > 0) {
-                System.out.println("Entradas de evento:");      
-                for(EntradaEvento entradaEvento : eventos) {
-                    System.out.println(entradaEvento);
-                }
+        if (entradas.size() > 0) {
+            for(Entrada entrada : entradas) {
+                System.out.println(entrada);
             }
         }
         else {
             System.out.println("No hay datos de entradas de texto, ni de entradas de fotos, ni de entradas de eventos aun.");
         }
-    }
-    
-    /**
-     * A�ade un evento al muro.
-     * @param entradaEvento A�ade un evento al muro.
-     */
-    public void addEntradaEvento(EntradaEvento entradaEvento) {
-        eventos.add(entradaEvento);
     }
 }

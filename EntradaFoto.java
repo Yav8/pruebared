@@ -84,4 +84,8 @@ public class EntradaFoto extends EntradaConComentarios {
         } 
         return textoADevolver;
     }
+    
+    public void mostrar() {
+        System.out.println(this);
+    }
 }

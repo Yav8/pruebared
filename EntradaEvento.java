@@ -57,4 +57,8 @@ public class EntradaEvento extends EntradaSinComentarios {
         textoADevolver += "- me gusta: " + getCantidadMeGusta();
         return textoADevolver;
     }
+    
+    public void mostrar() {
+        System.out.println(this);
+    }
 }

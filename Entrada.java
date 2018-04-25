@@ -63,4 +63,8 @@ public class Entrada {
     public int getCantidadMeGusta() {
         return cantidadMeGusta;
     }
+    
+    public void mostrar() {
+        
+    }
 }
