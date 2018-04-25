@@ -35,4 +35,22 @@ public class EntradaConComentarios extends Entrada {
     public ArrayList<String> getComentarios() {
         return comentarios;
     }
+    
+    @Override
+    public String toString() {
+        String textoADevolver = super.toString();
+        if(comentarios.isEmpty()) {
+            textoADevolver += " - no se ha realizado ningun comentario aun.";                                        
+        }
+        else {
+            textoADevolver += " - comentarios: ";
+            for(int contador = 0; contador < comentarios.size(); contador++) {
+                textoADevolver += comentarios.get(contador);
+                if(contador != comentarios.size() - 1) {
+                    textoADevolver += " - ";
+                }
+            }
+        }
+        return textoADevolver;
+    }
 }

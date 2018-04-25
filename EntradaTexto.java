@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.time.LocalDateTime;
 
 /**
  * La clase EntradaTexto contiene la informacion de los usuarios 
@@ -37,28 +36,8 @@ public class EntradaTexto extends EntradaConComentarios {
      */
     @Override
     public String toString() {
-        String textoADevolver = "Usuario: " + getUsuario() + " - mensaje: " + getMensaje() + " - momento de la publicacion: hace ";
-        LocalDateTime fechaDelMomentoDeLaPublicacion = getMomentoPublicacion();
+        String textoADevolver = super.toString();
         ArrayList<String> listaDeComentarios = getComentarios();
-        if(fechaDelMomentoDeLaPublicacion.getMinute() < 1) {
-            textoADevolver += fechaDelMomentoDeLaPublicacion.getSecond();
-            if(fechaDelMomentoDeLaPublicacion.getSecond() == 1) {
-                textoADevolver += " segundo ";                    
-            }
-            else {
-                textoADevolver += " segundos ";                    
-            }
-        }
-        else {
-            textoADevolver += fechaDelMomentoDeLaPublicacion.getMinute();
-            if(fechaDelMomentoDeLaPublicacion.getMinute() == 1) {
-                textoADevolver += " minuto ";
-            }
-            else {
-                textoADevolver += " minutos ";                    
-            }
-        }
-        textoADevolver += "- me gusta: " + getCantidadMeGusta();
         if(listaDeComentarios.isEmpty()) {
             textoADevolver += " - no se ha realizado ningun comentario aun.";                                        
         }
@@ -71,6 +50,7 @@ public class EntradaTexto extends EntradaConComentarios {
                 }
             }
         } 
+        textoADevolver += " - mensaje: " + getMensaje();
         return textoADevolver;
     }
     

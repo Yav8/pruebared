@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.time.LocalDateTime;
 
 /**
  * La clase EntradaFoto contiene las imagenes que los 
@@ -48,28 +47,8 @@ public class EntradaFoto extends EntradaConComentarios {
      */
     @Override
     public String toString() {
-        String textoADevolver = "Usuario: " + getUsuario() + " - url de la imagen: " + urlImagen + " - titulo de la imagen: " + titulo + " - momento de la publicacion: hace ";
-        LocalDateTime fechaDelMomentoDeLaPublicacion = getMomentoPublicacion();
+        String textoADevolver = super.toString();
         ArrayList<String> listaDeComentarios = getComentarios();
-        if(fechaDelMomentoDeLaPublicacion.getMinute() < 1) {
-            textoADevolver += fechaDelMomentoDeLaPublicacion.getSecond();
-            if(fechaDelMomentoDeLaPublicacion.getSecond() == 1) {
-                textoADevolver += " segundo ";                    
-            }
-            else {
-                textoADevolver += " segundos ";                    
-            }
-        }
-        else {
-            textoADevolver += fechaDelMomentoDeLaPublicacion.getMinute();
-            if(fechaDelMomentoDeLaPublicacion.getMinute() == 1) {
-                textoADevolver += " minuto ";
-            }
-            else {
-                textoADevolver += " minutos ";                    
-            }
-        }
-        textoADevolver += "- me gusta: " + getCantidadMeGusta();
         if(listaDeComentarios.isEmpty()) {
             textoADevolver += " - no se ha realizado ningun comentario aun.";                                        
         }
@@ -82,6 +61,7 @@ public class EntradaFoto extends EntradaConComentarios {
                 }
             }
         } 
+        textoADevolver += " - url de la imagen: " + urlImagen + " - titulo de la imagen: " + titulo;
         return textoADevolver;
     }
     

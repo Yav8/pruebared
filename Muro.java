@@ -53,11 +53,15 @@ public class Muro {
     public void mostrarCaracteristicas() {
         if (entradas.size() > 0) {
             for(Entrada entrada : entradas) {
-                System.out.println(entrada);
+                entrada.mostrar();
             }
         }
         else {
             System.out.println("No hay datos de entradas de texto, ni de entradas de fotos, ni de entradas de eventos aun.");
         }
+    }
+    
+    public void mostrarToString() {
+        System.out.println(this);
     }
 }
