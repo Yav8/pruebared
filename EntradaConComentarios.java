@@ -27,15 +27,6 @@ public class EntradaConComentarios extends Entrada {
         comentarios.add(text);
     }
     
-    /**
-     * Devuelve los comentarios de la entrada.
-     * @return Devuelve un ArrayList de String que son los comentarios que 
-     * tiene una entrada.
-     */
-    public ArrayList<String> getComentarios() {
-        return comentarios;
-    }
-    
     @Override
     public String toString() {
         String textoADevolver = super.toString();

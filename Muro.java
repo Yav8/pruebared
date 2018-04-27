@@ -64,4 +64,39 @@ public class Muro {
     public void mostrarToString() {
         System.out.println(this);
     }
+    
+    public void mostrarDatosExclusivosEntradasFiltradas(String textoEntrada) {
+        if (textoEntrada != null) {
+            for (Entrada entrada : entradas) {
+                if (entrada.getClass().getSimpleName().equals(textoEntrada) && textoEntrada.equals("EntradaTexto")) {
+                    EntradaTexto entradaActual = (EntradaTexto)entrada;
+                    entradaActual.mostrarDatosExclusivos();
+                }
+                else if (entrada.getClass().getSimpleName().equals(textoEntrada) && textoEntrada.equals("EntradaFoto")) {
+                    EntradaFoto entradaActual = (EntradaFoto)entrada;
+                    entradaActual.mostrarDatosExclusivos();
+                }
+                else if (entrada.getClass().getSimpleName().equals(textoEntrada) && textoEntrada.equals("EntradaEvento")) {
+                    EntradaEvento entradaActual = (EntradaEvento)entrada;
+                    entradaActual.mostrarDatosExclusivos();
+                }
+            }
+        }
+        else {
+            for (Entrada entrada : entradas) {
+                if (entrada.getClass().getSimpleName().equals("EntradaTexto")) {
+                    EntradaTexto entradaActual = (EntradaTexto)entrada;
+                    entradaActual.mostrarDatosExclusivos();
+                }
+                else if (entrada.getClass().getSimpleName().equals("EntradaFoto")) {
+                    EntradaFoto entradaActual = (EntradaFoto)entrada;
+                    entradaActual.mostrarDatosExclusivos();
+                }
+                else if (entrada.getClass().getSimpleName().equals("EntradaEvento")) {
+                    EntradaEvento entradaActual = (EntradaEvento)entrada;
+                    entradaActual.mostrarDatosExclusivos();
+                }
+            }
+        }
+    }
 }

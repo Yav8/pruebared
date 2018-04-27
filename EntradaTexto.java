@@ -37,19 +37,6 @@ public class EntradaTexto extends EntradaConComentarios {
     @Override
     public String toString() {
         String textoADevolver = super.toString();
-        ArrayList<String> listaDeComentarios = getComentarios();
-        if(listaDeComentarios.isEmpty()) {
-            textoADevolver += " - no se ha realizado ningun comentario aun.";                                        
-        }
-        else {
-            textoADevolver += " - comentarios: ";
-            for(int contador = 0; contador < listaDeComentarios.size(); contador++) {
-                textoADevolver += listaDeComentarios.get(contador);
-                if(contador != listaDeComentarios.size() - 1) {
-                    textoADevolver += " - ";
-                }
-            }
-        } 
         textoADevolver += " - mensaje: " + getMensaje();
         return textoADevolver;
     }
@@ -63,5 +50,9 @@ public class EntradaTexto extends EntradaConComentarios {
     
     public void mostrar() {
         System.out.println(this);
+    }
+    
+    public void mostrarDatosExclusivos() {
+        System.out.println(" mensaje: " + mensaje);
     }
 }

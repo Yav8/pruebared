@@ -38,4 +38,8 @@ public class EntradaEvento extends EntradaSinComentarios {
     public void mostrar() {
         System.out.println(this);
     }
+    
+    public void mostrarDatosExclusivos() {
+        System.out.println(" mensaje: " + getMensajeEvento());
+    }
 }
